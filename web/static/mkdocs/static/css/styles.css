@@ -1,0 +1,50 @@
+.md-button:link,
+.md-button:visited,
+.md-button:active,
+.md-button {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 4px;
+    font-size: 14px;
+    color: white;
+    background-color: #004791;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.md-button:hover {
+    background-color: #6298d2 !important;
+    color: white;
+}
+
+.wy-side-nav-search,
+.md-header {
+    background-color: #004791 !important; 
+}
+
+.md-header,
+.md-footer {
+    display: none;
+}
+
+.md-nav {
+    background-color: #ebe5e0;
+}
+
+.md-elipsis,
+.md-elipsis:link,
+.md-elipsis:visited {
+    color: black !important;
+}
+
+.md-ellipsis:hover {
+    color: black;
+    font-weight: bold;
+}
+
+h1, h2, h3, h4 {
+    color: #004791 !important;
+    font-weight: 600 !important;
+}

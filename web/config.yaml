@@ -1,0 +1,24 @@
+baseURL: "https://www.naiss.se"
+languageCode: "en-us"
+theme: "naiss"
+
+menu:
+  main:
+    - name: "Support"
+      url: "/support/"
+      weight: 1
+    - name: "Applications"
+      url: "/application/"
+      weight: 2
+    - name: "Allocations"
+      url: "/allocation/"
+      weight: 3
+    - name: "User Support Advisory Committee"
+      url: "/usac/"
+      weight: 4
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+relativeURLs: true

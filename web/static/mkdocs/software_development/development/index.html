@@ -1,0 +1,2233 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../data_management/rclone_onedrive/">
+      
+      
+        <link rel="next" href="../development_gpu/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.37">
+    
+    
+      
+        <title>Compilers and libraries - PDC Support Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../static/css/styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#compilers-and-libraries" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PDC Support Documentation" class="md-header__button md-logo" aria-label="PDC Support Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PDC Support Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Compilers and libraries
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PDC Support Documentation" class="md-nav__button md-logo" aria-label="PDC Support Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PDC Support Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site_map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Site Map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Quick start guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Quick start guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Requesting resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Requesting resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_access/get_access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Access
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_access/dev_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    How to Login
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            How to Login
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/ssh_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to log in with SSH keys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/ssh_keys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generating SSH keys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/kerberos_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to log in with kerberos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/linux_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to login from Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/windows_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to login from Windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/mac_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to login from Mac OS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to configure kerberos and SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/reset_password/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to reset your password
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/interactive_hpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactive HPC at PDC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    How to Run Jobs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            How to Run Jobs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_scheduling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to Run Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/queueing_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to submit jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_scripts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_scripts_dardel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job script examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_arrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job arrays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/short_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Short jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/run_interactively/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run interactively
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_statistics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job Statistics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Available Software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Available Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use module to load different softwares into your environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software/singularity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instructions for using singularity at PDC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.pdc.kth.se/software" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Available Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Management
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Data Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/data_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/klemming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Klemming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/file_transfer_swestore-dcache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Swestore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/file_transfer_scp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/rclone_onedrive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KTH OneDrive(rclone)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Software Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Software Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Compilers and libraries
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Compilers and libraries
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-cray-programming-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Cray Programming Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiler-wrappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compiler wrappers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cray-scientific-and-math-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cray scientific and math libraries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cray-message-passing-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cray message passing toolkit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiler-and-linker-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compiler and linker flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building for AMD GPUs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_allineaforge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Allinea Forge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Downloadable example for compiling and submitting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../easybuild/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing software using EasyBuild
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing software using Spack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Industry
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Industry
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industry/industry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practical information for industry projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industry/scania/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SCANIA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General instructions for PDC courses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/deeplearning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PRACE deep learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/pdcintro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to PDC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/summerschool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDC summer school
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/prace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDC/PRACE workshop HPC Tools for the Modern Era
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PDC Blog
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            PDC Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.kth.se/blogs/pdc" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDC Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Frequently Asked Questions  FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Frequently Asked Questions  FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Frequently Asked Questions (FAQ)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contact Support
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Contact Support
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/contact_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-cray-programming-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Cray Programming Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiler-wrappers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compiler wrappers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cray-scientific-and-math-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cray scientific and math libraries
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cray-message-passing-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cray message passing toolkit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiler-and-linker-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compiler and linker flags
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="compilers-and-libraries">Compilers and libraries</h1>
+<h2 id="the-cray-programming-environment">The Cray Programming Environment</h2>
+<p>The Cray Programming Environment (CPE) provides consistent interface to multiple compilers and libraries.
+On Dardel you can load the <code>cpe</code> module to enable a specific version of the CPE. For example</p>
+<div class="highlight"><pre><span></span><code>module load cpe/23.12
+</code></pre></div>
+<p>The <code>cpe</code> module will make sure that the corresponding versions of several other Cray libraries are loaded,
+such as <code>cray-libsci</code> and <code>cray-mpich</code>. You can check the details by <code>module show cpe/23.12</code>.</p>
+<p>In addition to the <code>cpe</code> module, there are also the <code>PrgEnv-</code> modules that provide compilers for
+different programming environment</p>
+<ul>
+<li><code>PrgEnv-cray</code>: loads the Cray compiling environment (CCE) that provides compilers for Cray systems.</li>
+<li><code>PrgEnv-gnu</code>: loads the GNU compiler suite.</li>
+<li><code>PrgEnv-aocc</code>: loads the AMD AOCC compilers.</li>
+</ul>
+<p>By default the <code>PrgEnv-cray</code> is loaded upon login. You can switch to different compilers using
+<code>module swap</code>:</p>
+<div class="highlight"><pre><span></span><code>module swap PrgEnv-cray PrgEnv-gnu
+module swap PrgEnv-gnu PrgEnv-aocc
+</code></pre></div>
+<h2 id="compiler-wrappers">Compiler wrappers</h2>
+<p>After loading the <code>cpe</code> and the <code>PrgEnv-</code> modules, you can now build your parallel applications
+using compiler wrappers for C, C++ and Fortran:</p>
+<div class="highlight"><pre><span></span><code>cc -o myexe.x mycode.c      # cc is the wrapper for C compiler
+CC -o myexe.x mycode.cpp    # CC is the wrapper for C++ compiler
+ftn -o myexe.x mycode.f90   # ftn is the wrapper for Fortran compiler
+</code></pre></div>
+<p>The compiler wrappers will choose the required compiler version, target architecture options, and will automatically
+link to the scientific libraries, as well as the MPI and OpenSHMEM libraries.
+No additional MPI flags are needed as these are included by compiler wrappers, and
+there is no need to add any <code>-I</code>, <code>-l</code> or <code>-L</code> flags for the Cray provided libraries.
+For libraries and include files covered by module files, you need not add anything to your Makefile.
+If a Makefile needs an input for -L to work correctly, try using “<code>.</code>”.</p>
+<p>For code development, testing, and performance analysis, it is good practice to build code with two different tool chains.
+On Dardel a starting point is to use the <code>PrgEnv-cray</code> and the <code>PrgEnv-gnu</code> environments.</p>
+<h2 id="cray-scientific-and-math-libraries">Cray scientific and math libraries</h2>
+<p>The Cray scientific and math libraries (CSML) provide the <code>cray-libsci</code> and <code>cray-fftw</code> modules
+that are designed to provide optimial performance from Cray systems.</p>
+<ul>
+<li><code>cray-libsci</code>: provides BLAS, LAPACK, ScaLAPACK, etc.</li>
+<li><code>cray-fftw</code>: provides fastest fourier transform.</li>
+</ul>
+<p>The <code>cray-libsci</code> module supports OpenMP and the number of threads can be controlled by the
+<code>OMP_NUM_THREADS</code> environment variable.</p>
+<p>The <code>cray-libsci</code> module is loaded upon login, and its version can be changed by the <code>cpe</code> module.
+The <code>cray-fftw</code> module needs to be loaded by user.</p>
+<h2 id="cray-message-passing-toolkit">Cray message passing toolkit</h2>
+<p>The Cray message passing toolkit (CMPT) provides the <code>cray-mpich</code> module, which is based on ANL
+MPICH and has been optimized for Cray programming environment.</p>
+<p>The <code>cray-mpich</code> module is loaded upon login, and its version can be changed by the <code>cpe</code> module.
+Once <code>cray-mpich</code> is loaded the compiler wrapper will automatically include MPI headers and link to
+MPI libraries.</p>
+<p>If you would like to use SHMEM you can check the availability of the <code>cray-openshmemx</code> module by
+“<code>module avail cray-openshmemx</code>”.</p>
+<h2 id="compiler-and-linker-flags">Compiler and linker flags</h2>
+<p>Verbose printing of the flags and settings that are active when using the compiler wrappers</p>
+<div class="highlight"><pre><span></span><code>-craype-verbose
+</code></pre></div>
+<p>A suggested starting point for code optimization on AMD EPYC Zen 2 processors are</p>
+<ul>
+<li>for the <strong>Cray</strong> compilers</li>
+</ul>
+<div class="highlight"><pre><span></span><code># C C++ flags
+-Ofast              # Aggresive optimization
+-flto               # link time optimization
+-ffp=3              # optimization of floating-point math operations. Supported values are 0, 1, 2, 3, and 4.
+-fcray-mallopt      # use Cray&#39;s mallopt parameters, can improve performance
+-fno-cray-mallopt   # no use of Cray&#39;s mallopt parameters, can reduce memory usage
+-fopenmp            # enable OpenMP
+
+# Fortran flags
+-02                 # default optimization
+-O3                 # aggresive optimization
+-O ipaN             # level of inline expansion N=0-5, default N=3
+-hlist=a            # write optimization info to listing file
+-hlist=a            # create source listing with loopmark information
+-homp               # enable OpenMP
+-hthread            # level of optimization of OpenMP directive, N=0-3, default N=2
+</code></pre></div>
+<ul>
+<li>for the <strong>GCC</strong> compilers</li>
+</ul>
+<div class="highlight"><pre><span></span><code># General flags
+
+# C C++  Fortran flags
+-O3                 # aggresive optimization
+-march=znver2       # name of the target architecture
+-mtune=znver2       # name of the target processor for which code performance will be tuned
+-mfma               # enable fma instructions
+-mavx2              # enable avx2 instructions
+-m3dnow             # enable 3dnow instructions
+-fomit-frame-pointer  # omit the frame pointer in functions that do not need one
+-fopenmp            # enable OpenMP
+
+# Fortran flags
+-std=legacy         # specify legacy Fortran standard
+-fallow-argument-mismatch  # allow for mismatches between calls and procedure definitions
+</code></pre></div>
+<ul>
+<li>for the <strong>AOCC</strong> compilers</li>
+</ul>
+<div class="highlight"><pre><span></span><code># C C++ Fortran flags
+-02                 # default optimization
+-O3                 # aggresive optimization
+-O ipaN             # level of inline expansion N=0-5, default N=3
+-flto               # link time optimization
+-funroll-loops      # loop unrolling
+-unroll-aggressive  # advance loop optimization
+-fopenmp            # enable OpenMP
+
+# Fortran flags
+-ffree-form         # support for free form Fortran
+</code></pre></div>
+<h2 id="build-examples">Build examples</h2>
+<p><strong>Example 1:</strong> Build an MPI parallelized Fortran code within the PrgEnv-cray environment</p>
+<p>In this example we build and test run a Hello World code <code>hello_world_mpi.f90</code>.</p>
+<div class="highlight"><pre><span></span><code>program hello_world_mpi
+include &quot;mpif.h&quot;
+integer myrank,size,ierr
+call MPI_Init(ierr)
+call MPI_Comm_rank(MPI_COMM_WORLD,myrank,ierr)
+call MPI_Comm_size(MPI_COMM_WORLD,size,ierr)
+write(*,*) &quot;Processor &quot;,myrank,&quot; of &quot;,size,&quot;: Hello World!&quot;
+call MPI_Finalize(ierr)
+end program
+</code></pre></div>
+<p>The build is done within the PrgEnv-cray environment using the Cray Fortran compiler, and the testing is done on a Dardel CPU node reserved for interactive use.</p>
+<div class="highlight"><pre><span></span><code># Check which compiler the compiler wrapper is pointing to
+ftn --version
+# returns Cray Fortran   Version 17 0 0
+
+# Compile the code
+ftn hello_world_mpi.f90 -o hello_world_mpi.x
+
+# Test the code in interactive session 
+# First queue to get one node reserved for 10 minutes
+salloc -N 1 -t 0:10:00 -A &lt;project name&gt; -p main
+# wait for the node  Then run the program using 128 MPI ranks with
+srun -n 128 ./hello_world_mpi.x
+# with program output to standard out
+#    
+# Processor  123  of  128   Hello World
+#    
+# Processor  47  of  128   Hello World
+#    
+</code></pre></div>
+<p>Having here used the <strong>ftn</strong> compiler wrapper, the linking to the cray-mpich library was done without the need to specify linking flags. As is expected for this code, in runtime each MPI rank is writing its Hello World to standard output <strong>without</strong> any synchronization with the other ranks.</p>
+<p><strong>Example 2:</strong> Build a C code with PrgEnv-gnu. The code requires linking to a Fourier transform library.</p>
+<div class="highlight"><pre><span></span><code># Download a C program that illustrates use of the FFTW library
+mkdir fftw_test
+cd fftw_test
+wget https://people.math.sc.edu/Burkardt/c_src/fftw/fftw_test.c
+
+# Change from the PrgEnv cray to the PrgEnv gnu environment
+ml PDC/23.12
+ml cpeGNU/23.12
+# Lmod is automatically replacing &quot;cpeGNU 23 12&quot; with &quot;PrgEnv gnu 8 5 0&quot; 
+# Lmod is automatically replacing &quot;cce 17 0 0&quot; with &quot;gcc 12 3&quot; 
+# Lmod is automatically replacing &quot;PrgEnv cray 8 5 0&quot; with &quot;cpeGNU 23 12&quot; 
+# Due to MODULEPATH changes  the following have been reloaded 
+# 1  cray libsci 23 12 5     2  cray mpich 8 1 28
+
+# Check which compiler the cc compiler wrapper is pointing to
+cc --version
+gcc-12 (SUSE Linux) 12.3.0
+
+ml list
+# The listing reveals that cray libsci 23 02 1 1 is already loaded 
+
+# In addition  the program needs linking also to a Fourier transform library 
+ml spider fftw
+# gives a listing of available Fourier transform libraries 
+# Load a recent version of the Cray FFTW library with
+module add cray-fftw/3.3.10.6
+
+# Build the code with
+cc fftw_test.c -o fftw_test.x
+
+# Test the code in interactive session 
+# First queue to get one reserved core for 10 minutes
+salloc -n 1 -t 0:10:00 -A &lt;project name&gt; -p shared
+# wait for the core  Then run the program with
+srun -n 1 ./fftw_test.x
+</code></pre></div>
+<p>Having loaded the cray-fftw module, no additional linking flag(s) was needed for the <strong>cc</strong> compiler wrapper.</p>
+<p><strong>Example 3:</strong> Build a program with the EasyBuild cpeGNU/23.12 toolchain</p>
+<div class="highlight"><pre><span></span><code># Load an EasyBuild user module
+ml PDC/23.12
+ml easybuild-user/4.9.1
+
+# Look for a recipe for the Libxc library
+eb -S Libxc
+# Returns a list of available EasyBuild easyconfig files 
+# Choose an easyconfig file for the cpeGNU 23 12 toolchain 
+
+# Make a dry run
+eb libxc-6.2.2-cpeGNU-23.12.eb --robot --dry-run
+
+# Check if dry run looks reasonable  Then proceed to build with
+eb libxc-6.2.2-cpeGNU-23.12.eb --robot
+
+# The program is now locally installed in the user s
+# ~  local easybuild directory and can be loaded with
+ml PDC/23.12
+ml easybuild-user/4.9.1
+ml libxc/6.2.2-cpeGNU-23.12
+</code></pre></div>
+<h2 id="references">References</h2>
+<p><em>HPE Cray user manuals and reference information</em></p>
+<p><a href="https://www.hpe.com/us/en/collaterals/collateral.a50002303enw.hpe-cray-programming-environment-brochure.html?rpv=1635512706137/">The Cray programming environment (CPE)</a></p>
+<p><a href="https://internal.support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&amp;docId=a00115304en_us/">HPE Cray Programming Environment User Guide</a></p>
+<p><a href="https://support.hpe.com/connect/s/product?language=en_US&amp;ismnp=0&amp;l5oid=1013083813&amp;kmpmoid=1013083815&amp;cep=on&amp;manualsAndGuidesFilter=66000006%2C66000002">HPE Cray reference information</a></p>
+<p><a href="https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&amp;docId=a00119421en_us">HPE Cray Clang C and C++ Quick Reference (13.0) (S-2179)</a></p>
+<p><a href="https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&amp;docId=a00119423en_us">HPE Cray Fortran Reference Manual (13.0) (S-3901)</a></p>
+<p><a href="https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&amp;docId=a00114942en_us/">HPE Performance Analysis Tools User Guide</a></p>
+<!-- Additional references - consider to mention on other PDC webpage
+https://support.hpe.com/connect/s/product?language=en_US&ismnp=0&l5oid=1013083813&kmpmoid=1013083815&cep=on&manualsAndGuidesFilter=66000035 -->
+
+<p><em>References on AMD processors</em></p>
+<p><a href="https://developer.amd.com/amd-aocc/">AMD Optimizing C/C++ and Fortran Compilers (AOCC)</a></p>
+<!-- Are these settings for MKL on AMD processor still available? -->
+
+<p><a href="https://documentation.sigma2.no/jobs/mkl.html">Using MKL efficiently</a></p>
+<!-- This guide is on the EPYC Zen 1 CPU. Is there are a new document for Zen 2/3? -->
+
+<p><a href="https://prace-ri.eu/training-support/best-practice-guides/best-practice-guide-amd-epyc/">Best practice Guide AMD EPYC</a></p>
+<p><a href="https://www.amd.com/en/products/epyc">AMD EPYC product line</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Epyc">AMD EPYC wiki page</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      
+        <script src="../../static/js/custom.js"></script>
+      
+    
+  </body>
+</html>

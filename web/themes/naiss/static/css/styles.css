@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(to right, #430029, #000086);
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background-image: repeating-linear-gradient(to right, white, white 7px, transparent 3px, transparent 10px);
+    background-size: 100% 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover::after {
+    opacity: 1;
+}
+
+h1, h2, h3, h4 {
+    color: #004791;
+}
+
+main {
+    padding: 20px;
+}

@@ -1,0 +1,2673 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../module/">
+      
+      
+        <link rel="next" href="../../data_management/data_management/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.37">
+    
+    
+      
+        <title>Instructions for using singularity at PDC - PDC Support Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../static/css/styles.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#instructions-for-using-singularity-at-pdc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="PDC Support Documentation" class="md-header__button md-logo" aria-label="PDC Support Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PDC Support Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instructions for using singularity at PDC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PDC Support Documentation" class="md-nav__button md-logo" aria-label="PDC Support Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PDC Support Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../site_map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Site Map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Quick start guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Quick start guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/quickstart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Requesting resources
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Requesting resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_access/get_access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Access
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_access/dev_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    How to Login
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            How to Login
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/ssh_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to log in with SSH keys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/ssh_keys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generating SSH keys
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/kerberos_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to log in with kerberos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/linux_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to login from Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/windows_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to login from Windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/mac_login/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to login from Mac OS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to configure kerberos and SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/reset_password/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to reset your password
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../login/interactive_hpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactive HPC at PDC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    How to Run Jobs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            How to Run Jobs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_scheduling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to Run Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/queueing_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to submit jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_scripts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_scripts_dardel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job script examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_arrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job arrays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/short_jobs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Short jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/run_interactively/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run interactively
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_jobs/job_statistics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job Statistics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Available Software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Available Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to use module to load different softwares into your environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Instructions for using singularity at PDC
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Instructions for using singularity at PDC
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-of-singularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation of singularity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-singularity-on-your-local-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use singularity on your local computer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to use singularity on your local computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-install-singularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to install singularity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-images-from-singularity-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download images from singularity hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-own-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building your own images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-own-image-from-recipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building your own image from recipes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-singularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test singularity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install software
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-the-essentials-in-your-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the essentials in your image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copying-data-from-local-file-system-to-singularity-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying data from local file system to singularity sandbox
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-to-store-runtime-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to store runtime files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storing help
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saving-your-sandbox-to-pdc-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saving your sandbox to PDC cluster
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-remote-build-a-singularity-image-on-the-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to remote build a singularity image on the cluster
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to remote build a singularity image on the cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-sylabs-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a sylabs account
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-sylabs-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create sylabs token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-an-access-token-to-the-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding an access token to the cluster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-build-a-container-on-the-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote build a container on the cluster
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-singularity-images-at-pdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running singularity images at PDC
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running singularity images at PDC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ready-made-containers-at-pdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ready made containers at PDC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Job scripts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Job scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#batch-job-without-mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch job without MPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batchjob-with-mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batchjob with MPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-job-with-gpu-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch job with GPU support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.pdc.kth.se/software" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Available Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Management
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Data Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/data_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/klemming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Klemming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/file_transfer_swestore-dcache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Swestore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/file_transfer_scp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File transfer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data_management/rclone_onedrive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KTH OneDrive(rclone)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Software Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Software Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compilers and libraries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/development_gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building for AMD GPUs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/development_allineaforge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Allinea Forge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/development_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Downloadable example for compiling and submitting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/development_references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/easybuild/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing software using EasyBuild
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/spack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing software using Spack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Industry
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Industry
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industry/industry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Practical information for industry projects
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../industry/scania/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SCANIA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General instructions for PDC courses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/deeplearning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PRACE deep learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/pdcintro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to PDC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/summerschool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDC summer school
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../courses/prace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDC/PRACE workshop HPC Tools for the Modern Era
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PDC Blog
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            PDC Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.kth.se/blogs/pdc" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDC Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Frequently Asked Questions  FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Frequently Asked Questions  FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Frequently Asked Questions (FAQ)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contact Support
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Contact Support
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/contact_support/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact Support
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-of-singularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation of singularity
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-singularity-on-your-local-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to use singularity on your local computer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to use singularity on your local computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-install-singularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to install singularity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-images-from-singularity-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Download images from singularity hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-own-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building your own images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-your-own-image-from-recipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building your own image from recipes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-singularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test singularity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install software
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-the-essentials-in-your-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the essentials in your image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copying-data-from-local-file-system-to-singularity-sandbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying data from local file system to singularity sandbox
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-to-store-runtime-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where to store runtime files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storing help
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saving-your-sandbox-to-pdc-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saving your sandbox to PDC cluster
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-remote-build-a-singularity-image-on-the-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to remote build a singularity image on the cluster
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to remote build a singularity image on the cluster">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-sylabs-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a sylabs account
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-sylabs-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create sylabs token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-an-access-token-to-the-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding an access token to the cluster
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-build-a-container-on-the-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote build a container on the cluster
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-singularity-images-at-pdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running singularity images at PDC
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running singularity images at PDC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ready-made-containers-at-pdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ready made containers at PDC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Job scripts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Job scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#batch-job-without-mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch job without MPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batchjob-with-mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batchjob with MPI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-job-with-gpu-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch job with GPU support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="instructions-for-using-singularity-at-pdc">Instructions for using singularity at PDC</h1>
+<p>Singularity enables users to have full control of their environment.
+Singularity containers can be used to package entire scientific workflows, software and libraries, and even data.
+This means that you don’t have to ask your cluster admin to install anything for you -
+you can put it in a Singularity container and run. Did you already invest in Docker?
+The Singularity software can import your Docker images without having Docker installed or being a superuser.
+Need to share your code? Put it in a Singularity container and your collaborator won’t have to go through the pain of installing missing dependencies.
+Do you need to run a different operating system entirely?
+You can “swap out” the operating system on your host for a different one within a Singularity container.
+As the user, you are in control of the extent to which your container interacts with its host.
+There can be seamless integration, or little to no communication at all.</p>
+<p>More information about singularity can be found at <a href="https://docs.sylabs.io/guides/latest/user-guide/">https://docs.sylabs.io/guides/latest/user-guide/</a></p>
+<h2 id="security">Security</h2>
+<p>Singularity is more secure on a HPC than other similar solutions like docker or shifter.
+Read a comparison about them at <a href="http://geekyap.blogspot.se/2016/11/docker-vs-singularity-vs-shifter-in-hpc.html">http://geekyap.blogspot.se/2016/11/docker-vs-singularity-vs-shifter-in-hpc.html</a></p>
+<p>important to remember is that if you download images they should be trusted
+since any container you run will have full access tor your account and your data.</p>
+<p>The same goes for images you build yourself that they are built upon
+trusted images.</p>
+<h2 id="performance">Performance</h2>
+<p>Executing software in containers is very efficient as well as you create
+a sandbox of all applications that you do need. Very little performance
+loss has been seen.</p>
+<h2 id="installation-of-singularity">Installation of singularity</h2>
+<p>Singularity is installed as a nosuid on the cluster, meaning that you are
+unable to use singularity files, but are able to use
+singularity <strong>sandboxes</strong> instead. Otherwise there should be
+no difference.
+At PDC you cannot write within your containers while being logged
+in on the cluster.
+Operation for creating containers is better performed on your
+local computer.</p>
+<h2 id="how-to-use-singularity-on-your-local-computer">How to use singularity on your local computer</h2>
+<h3 id="how-to-install-singularity">How to install singularity</h3>
+<p>Singularity can be installed on your computer, with <strong>root access</strong>, so
+you can build your own images.
+Installation instructions are available at…
+<a href="https://docs.sylabs.io/guides/latest/user-guide/quick_start.html#quick-installation-steps">https://docs.sylabs.io/guides/latest/user-guide/quick_start.html#quick-installation-steps</a></p>
+<h3 id="download-images-from-singularity-hub">Download images from singularity hub</h3>
+<p>You can find numerous images at <a href="https://singularity-hub.org/">https://singularity-hub.org/</a>
+Just download them directly to our file system and use
+them for your analysis. The <em>build</em> command
+in singularity, besides downloading the image, also converts the image to the
+latest singularity version.</p>
+<div class="highlight"><pre><span></span><code>singularity build --sandbox &lt;sandbox name&gt; shub://&lt;name of image&gt;
+</code></pre></div>
+<p>You can also use images from docker <a href="https://hub.docker.com">https://hub.docker.com</a></p>
+<div class="highlight"><pre><span></span><code>singularity build --sandbox &lt;sandbox name&gt; docker://&lt;name of image&gt;
+</code></pre></div>
+<h3 id="building-your-own-images">Building your own images</h3>
+<p>Different Linux OS are available for you to download.
+At this time the best Ubuntu distribution is available as a
+docker image and can be downloaded</p>
+<div class="highlight"><pre><span></span><code>sudo singularity build --sandbox &lt;sandbox name&gt; docker://ubuntu:latest
+</code></pre></div>
+<p>Which will download this docker image and convert it into
+a sandbox.</p>
+<h3 id="building-your-own-image-from-recipes">Building your own image from recipes</h3>
+<p>You can also create an image using a recipe from our PDC github. Singularity recipes with MPI support are available at
+<a href="https://github.com/PDC-support/PDC-SoftwareStack/tree/master/other/singularity">https://github.com/PDC-support/PDC-SoftwareStack/tree/master/other/singularity</a>
+In order to create these</p>
+<div class="highlight"><pre><span></span><code>sudo singularity build --sandbox &lt;sandbox name&gt; &lt;recipe name&gt;
+</code></pre></div>
+<p>Here is a full example on how to create an image from one of our recipes.</p>
+<div class="highlight"><pre><span></span><code>wget https://raw.githubusercontent.com/PDC-support/PDC-SoftwareStack/master/other/singularity/ubuntu-mpich-full.def
+sudo singularity build --sandbox ubuntu-full ubuntu-mpich-full.def
+</code></pre></div>
+<h3 id="test-singularity">Test singularity</h3>
+<p>With this command you will automatically login into
+your singularity image shell.</p>
+<div class="highlight"><pre><span></span><code>singularity shell &lt;sandbox name&gt;
+</code></pre></div>
+<p>In the shell you can do the usual Linux shell commands.</p>
+<h3 id="install-software">Install software</h3>
+<p>So now that you do have a sandbox you can start by installing software
+in the image. By login into the <em>writable</em> sandbox you can use all the commands
+that are normal in the operating system, and your internetaccess is
+also available in the container, so you can use <em>wget</em> or other commands to download data and
+softwares. By default on a writable sandbox you login with the user <strong>root</strong>, therefore this should be
+executed on your personal computer where you have root access.</p>
+<div class="highlight"><pre><span></span><code>sudo singularity shell -w &lt;sandbox name&gt;
+</code></pre></div>
+<p><strong>Read mode:</strong> You can read/write to file system outside container and
+read inside container.</p>
+<p><strong>write mode:</strong> You can read/write inside container. In write mode you are user ROOT, home folder: /root</p>
+<h3 id="installing-the-essentials-in-your-image">Installing the essentials in your image</h3>
+<p>Although you have downloaded the latest OS, it still
+needs some basic software, compilers and libraries.
+This can either be installed using a recipe like explained above, or
+you can login into your image using <strong>write</strong> mode and install everything you need, for example
+updating a sandbox</p>
+<div class="highlight"><pre><span></span><code>sudo singularity shell -w ubuntu_sandbox
+Singularity&gt; apt-get install update
+Singularity&gt; exit
+</code></pre></div>
+<h3 id="copying-data-from-local-file-system-to-singularity-sandbox">Copying data from local file system to singularity sandbox</h3>
+<p>You can copy data to your singularity sandbox in several ways.
+Either by adding your files into the /root folder in singularity,
+and then they will automatically be available in the /root folder
+in singularity.</p>
+<div class="highlight"><pre><span></span><code>sudo cp &lt;your file&gt; /root
+</code></pre></div>
+<p>You can also bind your folder in singularity.
+In order to do that you must bind a folder in singularity to
+your local file system. Also the folder in singularity must be created
+first. The following example…</p>
+<ol>
+<li>creates a new folder in the sandbox</li>
+<li>binds a local folder to that folder</li>
+<li>logins into the container,</li>
+<li>copies <files> into your sandbox</li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo singularity exec -w ubuntu_write mkdir &lt;singularity folder&gt;
+sudo singularity shell -B &lt;local folder&gt;:/root/&lt;singularity folder&gt; -w ubuntu_write/
+Singularity&gt; cp &lt;singularity folder&gt;/&lt;files&gt; .
+</code></pre></div>
+<h3 id="where-to-store-runtime-files">Where to store runtime files</h3>
+<p>As the root folder you are login into when using a writable container is
+not available using exec from outside the container, if you
+plan to run software that you compiled yourself, you must put
+the executable somewhere that is accessible by PATH.
+ <em>/usr/local/bin</em> is a good example.
+Installed software can then be executed by</p>
+<div class="highlight"><pre><span></span><code>singularity exec &lt;sandbox name&gt; &lt;myexe&gt;
+</code></pre></div>
+<p>You can also add a software path in the containers <em>runscript</em>
+which is a shell file which will be executed when you <em>run</em>
+the container. The <strong>runscript</strong> file should be stored in
+<strong>/.singularity.d/</strong> folder
+The script is then executed using</p>
+<div class="highlight"><pre><span></span><code>singularity run &lt;sandbox name&gt;
+</code></pre></div>
+<h3 id="storing-help">Storing help</h3>
+<p>help documents on the image should be saved as <strong>runscript.help</strong>
+in the folder  <em>/.singularity.d</em>
+This can then be read by</p>
+<div class="highlight"><pre><span></span><code>singularity run-help &lt;sandbox name&gt;
+</code></pre></div>
+<h3 id="saving-your-sandbox-to-pdc-cluster">Saving your sandbox to PDC cluster</h3>
+<p>When you are ready installing all the software, paths, folders you
+need to transfer your sandbox to the cluster.
+To achieve this, it is advisable to first compress it and then transfer it.</p>
+<div class="highlight"><pre><span></span><code>sudo tar czf &lt;sandbox name&gt;.tar.gz &lt;sandbox name&gt;
+scp &lt;sandbox name&gt;.tar.gz &lt;username&gt;@dardel.pdc.kth.se:/cfs/klemming/home/&lt;u&gt;/&lt;username&gt;
+# On Dardel
+tar xfp &lt;sandbox name&gt;.tar.gz
+</code></pre></div>
+<p>Another possibility is to transfer a  <em>.SIF</em> file to Dardel and convert it to
+a sandbox with the <em>build</em> command</p>
+<div class="highlight"><pre><span></span><code>scp &lt;name&gt;.sif &lt;username&gt;@dardel.pdc.kth.se:/cfs/klemming/home/&lt;u&gt;/&lt;username&gt;
+# On Dardel
+singularity build --sandbox &lt;sandbox name&gt; &lt;name&gt;.sif
+</code></pre></div>
+<p>Do remember that you do need OpenMPI to execute your software in parallel
+on HPC systems. We provide images with OpenMPI installed
+in the PDC Hub, but you can also build your own.</p>
+<h2 id="how-to-remote-build-a-singularity-image-on-the-cluster">How to remote build a singularity image on the cluster</h2>
+<p>Instead of running singularity on your local computer as a mean to create a singularity sandbox, you
+can instead use the remote build function with a singularity recipy.
+Examples of recipies are available at <a href="https://github.com/PDC-support/PDC-SoftwareStack/tree/master/other/singularity">https://github.com/PDC-support/PDC-SoftwareStack/tree/master/other/singularity</a>
+In the description below we use the free service from sylabs for creating sandboxes at PDC.</p>
+<h3 id="create-a-sylabs-account">Create a sylabs account</h3>
+<p>In order to be able to get access to the remote building facility you need to
+create a free account at <a href="https://cloud.sylabs.io/builder">https://cloud.sylabs.io/builder</a></p>
+<h3 id="create-sylabs-token">Create sylabs token</h3>
+<ol>
+<li>Login into sylabs <a href="https://cloud.sylabs.io/builder">https://cloud.sylabs.io/builder</a></li>
+<li>Press <strong>USERNAME -&gt; Access tokens</strong></li>
+<li>Enter a name for your <em>token</em> and press <strong>Create Access Token</strong></li>
+<li>Copy or download the token.</li>
+</ol>
+<h3 id="adding-an-access-token-to-the-cluster">Adding an access token to the cluster</h3>
+<p>First of all login to the PDC cluster and access the module singularity</p>
+<div class="highlight"><pre><span></span><code>ml PDC
+ml singularity
+</code></pre></div>
+<p>After this run command</p>
+<div class="highlight"><pre><span></span><code>singularity remote login
+</code></pre></div>
+<p>The first time you run this command on the cluster, it will save your access token to your profile.
+Running the same command again will erase the old token and you can add a new one.</p>
+<h3 id="remote-build-a-container-on-the-cluster">Remote build a container on the cluster</h3>
+<p>After having a valid token you can build your singularity sandbox remotely using the command…</p>
+<div class="highlight"><pre><span></span><code>singularity build --remote --sandbox &lt;sandbox name&gt; &lt;recipe name&gt;
+</code></pre></div>
+<h2 id="running-singularity-images-at-pdc">Running singularity images at PDC</h2>
+<p>Singularity works on Dardel by loading the singularity module.
+There are however restrictions. As explained above you are not able to write
+into singularity container. You are however able to build singularity sandboxes from
+containers available online, but not from recipes.</p>
+<div class="highlight"><pre><span></span><code>singularity build --sandbox &lt;sandbox name&gt; docker://ubuntu:latest
+</code></pre></div>
+<p>Also, you are able to <em>run</em>, <em>run-help</em>, <em>exec</em>, <em>shell</em>, as well as other
+non-write commands, on singularity sandboxes at PDC.</p>
+<p>Below are a couple of example on how to run a singularity container on PDC systems.
+As the Lustre filesystem is not recognised by default it is important to bind said filesystem, which
+is done in the example scripts below.</p>
+<h3 id="ready-made-containers-at-pdc">Ready made containers at PDC</h3>
+<p>PDC provides some default containers for testing and certain software which are placed
+at <strong>/pdc/software/sing_hub</strong>
+These can also be reached by invoking  <em>$PDC_SHUB</em></p>
+<div class="highlight"><pre><span></span><code>ls $PDC_SHUB
+</code></pre></div>
+<p>As highlighted before these containers are built as a <em>sandbox</em> and can be run with our clusters.
+In order to get information about what they contain please run</p>
+<div class="highlight"><pre><span></span><code>singularity run-help $PDC_SHUB/&lt;sandbox name&gt;
+</code></pre></div>
+<p>Recipes on how several of these container are bult is available at <a href="https://github.com/PDC-support/PDC-SoftwareStack/tree/master/other/singularity">https://github.com/PDC-support/PDC-SoftwareStack/tree/master/other/singularity</a></p>
+<h3 id="job-scripts">Job scripts</h3>
+<p>Follow information on how to create <a href="../../run_jobs/job_scripts/#job-scripts">Job scripts</a> at this page, which is not covered below.
+Although here are a couple of examples on how to run jobs on the dardel cluster.</p>
+<h4 id="batch-job-without-mpi">Batch job without MPI</h4>
+<p>In case you would like to run on one node you do not need MPI support
+in your image and you can send in a job using…</p>
+<div class="highlight"><pre><span></span><code>#! bin bash  l
+# The  l above is required to get the full environment with modules
+# Set the allocation to be charged for this job
+# not required if you have set a default allocation
+#SBATCH  A 201X X XX
+# The name of the script is myjob
+#SBATCH  J myjob
+# Only 1 hour wall clock time will be given to this job
+#SBATCH  t 1 00 00
+# Number of nodes
+#SBATCH   nodes=1
+# Using the shared partition as we are not using all cores
+#SBATCH  p shared
+# Number of MPI processes per node
+#SBATCH   ntasks per node=24
+# Run the executable named myexe
+ml PDC singularity
+srun -n 24 singularity exec -B /cfs/klemming &lt;sandbox folder&gt; &lt;myexe&gt;
+</code></pre></div>
+<h4 id="batchjob-with-mpi">Batchjob with MPI</h4>
+<p>In case you need to parallelize your software across nodes you should use one of the
+recipes with Cray MPI support mentioned earlier which do reside in the <a href="https://github.com/PDC-support/PDC-SoftwareStack">https://github.com/PDC-support/PDC-SoftwareStack</a></p>
+<div class="highlight"><pre><span></span><code>#! bin bash  l
+# The  l above is required to get the full environment with modules
+# Set the allocation to be charged for this job
+# not required if you have set a default allocation
+#SBATCH  A 201X X XX
+# The name of the script is myjob
+#SBATCH  J myjob
+# Only 1 hour wall clock time will be given to this job
+#SBATCH  t 1 00 00
+# Number of nodes
+#SBATCH   nodes=2
+# Using the shared partition as we are not using all cores
+#SBATCH  p shared
+# Number of MPI processes per node
+#SBATCH   ntasks per node=12
+# Run the executable named myexe
+ml PDC singularity
+srun -n 24 --mpi=pmi2 singularity exec -B /cfs/klemming &lt;sandbox folder&gt; &lt;myexe&gt;
+</code></pre></div>
+<h4 id="batch-job-with-gpu-support">Batch job with GPU support</h4>
+<p>In case you would like to run on one node with AMD GPUs.
+Be aware that you need a container with software compilated
+using GPU support. Look at our <a href="https://github.com/PDC-support/PDC-SoftwareStack">https://github.com/PDC-support/PDC-SoftwareStack</a>
+for recipes on how to build.
+in your image and you can send in a job using…</p>
+<div class="highlight"><pre><span></span><code>#! bin bash  l
+# The  l above is required to get the full environment with modules
+# Set the allocation to be charged for this job
+# not required if you have set a default allocation
+#SBATCH  A 201X X XX
+# The name of the script is myjob
+#SBATCH  J myjob
+# Only 1 hour wall clock time will be given to this job
+#SBATCH  t 1 00 00
+# Number of nodes
+#SBATCH   nodes=1
+# Using the GPU partition which is at the moment is under testing
+#SBATCH  p gpu
+# Run the executable named myexe
+ml PDC singularity
+srun -n 1 singularity exec --rocm -B /cfs/klemming &lt;sandbox folder&gt; &lt;myexe&gt;
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      
+        <script src="../../static/js/custom.js"></script>
+      
+    
+  </body>
+</html>
